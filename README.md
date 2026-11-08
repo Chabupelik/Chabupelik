@@ -3,12 +3,12 @@
 # Chabupelik
 
 <a href="https://git.io/typing-svg">
-  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=20&duration=2500&pause=1000&color=58A6FF&center=true&vCenter=true&width=550&lines=Python+Backend+Developer;REST+API+%E2%80%A2+Server+Architecture;PostgreSQL+%E2%80%A2+Redis+%E2%80%A2+Docker+%E2%80%A2+FastAPI;High-Reliability+%26+Async+Services" alt="Typing SVG" />
+  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=20&duration=2500&pause=1000&color=58A6FF&center=true&vCenter=true&width=550&lines=Python+Backend+Developer;FastAPI+%E2%80%A2+PostgreSQL+%E2%80%A2+Redis+%E2%80%A2+Docker;High-Load+Backends+%26+Async+Architecture" alt="Typing SVG" />
 </a>
 
 <p align="center">
-  Бэкенд-разработчик на Python. Проектирую производительные REST API, серверную логику,<br/>
-  оптимизирую работу с базами данных и упаковываю сервисы в Docker.
+  Бэкенд-разработчик на Python. Проектирую REST API, серверную логику,<br/>
+  оптимизирую работу с базами данных и контейнеризирую сервисы в Docker.
 </p>
 
 <p align="center">
@@ -31,8 +31,26 @@
 
 ### 🚀 Проекты
 
+### 🖥️ [Deskrift](https://github.com/Chabupelik/Deskrift)
+**Self-hosted веб-удаленный доступ к экрану Windows без установки клиентского софта (<50 мс при 60 FPS).**
+
+<p>
+  <img src="https://img.shields.io/badge/FastAPI-161b22?style=flat-square&logo=fastapi&logoColor=009688" />
+  <img src="https://img.shields.io/badge/Redis-161b22?style=flat-square&logo=redis&logoColor=DC382D" />
+  <img src="https://img.shields.io/badge/WebSockets-161b22?style=flat-square&logo=socketdotio&logoColor=white" />
+  <img src="https://img.shields.io/badge/Go-161b22?style=flat-square&logo=go&logoColor=00ADD8" />
+  <img src="https://img.shields.io/badge/Docker-161b22?style=flat-square&logo=docker&logoColor=2496ED" />
+  <img src="https://img.shields.io/badge/Vue_3-161b22?style=flat-square&logo=vuedotjs&logoColor=4FC08D" />
+</p>
+
+* **Видеопоток:** Аппаратный захват экрана из видеопамяти (DXGI/NVENC) и передача чанков H.264 по WebSocket с аппаратным декодированием в браузере через WebCodecs API.
+* **Бэкенд:** Координация сессий на FastAPI, маршрутизация потоков и низколатентная трансляция пользовательского ввода (мышь, клавиатура).
+* **Авторизация:** Беспарольный вход через Telegram-бота по одноразовым токенам с коротким TTL в Redis.
+
+---
+
 ### 📚 [StudyManager](https://github.com/Chabupelik/StudyManager)
-> Комплексная клиент-серверная платформа управления учебным процессом, расписанием, посещаемостью и дежурствами.
+**Платформа управления учебным процессом с Live-синхронизацией расписания, посещаемостью и ролевой моделью.**
 
 <p>
   <img src="https://img.shields.io/badge/FastAPI-161b22?style=flat-square&logo=fastapi&logoColor=009688" />
@@ -44,15 +62,15 @@
   <img src="https://img.shields.io/badge/Vue_3-161b22?style=flat-square&logo=vuedotjs&logoColor=4FC08D" />
 </p>
 
-* 🏛️ **Clean Architecture:** Полная изоляция слоёв: API-контроллеры, доменные сервисы бизнес-логики и репозитории SQLAlchemy (asyncpg).
-* 🔄 **WebSockets Live Sync:** Конструктор расписания с семестровыми интервалами, оверрайдами «на лету» и мгновенным пушем изменений клиентам без перезагрузки страниц.
-* 👥 **Мультигрупповой RBAC:** Иерархия ролей (`superadmin` → `curator` → `headman` → `student`) с возможностью членства одного пользователя в нескольких группах.
-* 🌉 **Интеграции:** Двусторонний шлюз сообщений (VK ↔ Telegram Bridge), Telegram Mini App и экспорт ведомостей в Excel.
+* **Архитектура:** Чистая многослойная архитектура (Clean Architecture): изоляция API-контроллеров, доменных сервисов и репозиториев (SQLAlchemy asyncpg).
+* **Синхронизация:** Конструктор расписания с мгновенной рассылкой изменений (отмены, замены, переносы) клиентам по WebSocket без перезагрузки страниц.
+* **Ролевая модель:** Иерархический RBAC (`superadmin` → `curator` → `headman` → `student`) с поддержкой одновременного членства в нескольких группах.
+* **Интеграции:** Telegram Mini App, автоматический подсчёт академических часов и двусторонний мост сообщений VK ↔ Telegram.
 
 ---
 
 ### 🌾 [AgroMachines](https://github.com/Chabupelik/AgroMachines)
-> Production-ready платформа каталога сельхозтехники с системой оформления заявок и интеграцией в Telegram-CRM.
+**Каталог спецтехники и CRM-система со сквозной обработкой заявок клиентами и менеджерами в Telegram.**
 
 <p>
   <img src="https://img.shields.io/badge/FastAPI-161b22?style=flat-square&logo=fastapi&logoColor=009688" />
@@ -64,34 +82,15 @@
   <img src="https://img.shields.io/badge/Vue_3-161b22?style=flat-square&logo=vuedotjs&logoColor=4FC08D" />
 </p>
 
-* 🛡️ **Защита от Race Condition:** Частичный уникальный индекс PostgreSQL (`WHERE status IN ('NEW', 'IN_PROGRESS')`) и атомарные обновления — исключают дублирование заявок на уровне СУБД.
-* ⚡ **Асинхронная доставка:** Интеграционные задачи отправки уведомлений вынесены в `BackgroundTasks`, обеспечивая моментальный `200 OK` клиенту.
-* 🤖 **Telegram Webhook CRM:** Моментальное создание карточки заявки в чате менеджеров с Inline-кнопками управления («Взять в работу» / «Завершить») и обновлением статуса по вебхуку.
-* 🔒 **Комплексная безопасность:** Token Bucket Rate-limiting в Redis, валидация номеров телефонов через Google Libphonenumber и MinIO S3 для медиа.
-
----
-
-### 🖥️ [Deskrift](https://github.com/Chabupelik/Deskrift)
-> Высокопроизводительный self-hosted удаленный доступ к экрану Windows через браузер (<50 мс, 60 FPS).
-
-<p>
-  <img src="https://img.shields.io/badge/FastAPI-161b22?style=flat-square&logo=fastapi&logoColor=009688" />
-  <img src="https://img.shields.io/badge/Redis-161b22?style=flat-square&logo=redis&logoColor=DC382D" />
-  <img src="https://img.shields.io/badge/WebSockets-161b22?style=flat-square&logo=socketdotio&logoColor=white" />
-  <img src="https://img.shields.io/badge/Go-161b22?style=flat-square&logo=go&logoColor=00ADD8" />
-  <img src="https://img.shields.io/badge/Docker-161b22?style=flat-square&logo=docker&logoColor=2496ED" />
-  <img src="https://img.shields.io/badge/Vue_3-161b22?style=flat-square&logo=vuedotjs&logoColor=4FC08D" />
-</p>
-
-* 📡 **WebSocket Video Streaming:** Потоковая трансляция H.264 чанков без протокольного оверхеда с аппаратным декодированием через WebCodecs API в браузере.
-* 🎛️ **Бэкенд-маршрутизация:** FastAPI управляет жизненным циклом сессий, пирами и проксированием потоков между десктопным Go-агентом и клиентом.
-* ⌨️ **Низколатентное управление:** Двусторонняя передача событий ввода (мышь, клавиатура) напрямую в Win32 API.
-* 🔑 **Беспарольный вход:** Мгновенная авторизация через личного Telegram-бота с генерацией одноразовых токенов с коротким TTL в Redis.
+* **Telegram-CRM:** Заявки с витрины моментально приходят в чат менеджеров; управление статусами («В работе», «Завершено») идёт кнопками через вебхуки на бэкенд.
+* **Целостность данных:** Частичный уникальный индекс в PostgreSQL исключает дублирование активных заявок по номеру телефона при повторных кликах.
+* **Асинхронность:** Отправка уведомлений вынесена в BackgroundTasks, обеспечивая мгновенный ответ API клиенту без блокировок.
+* **Безопасность:** Token Bucket Rate-limiting в Redis от спама, валидация номеров (Google Libphonenumber) и медиахранилище MinIO S3.
 
 ---
 
 ### 🛡️ [Wispr](https://github.com/Chabupelik/Wispr)
-> Клиент-серверная платформа изолированного веб-сёрфинга и защищённого туннелирования трафика.
+**Изолированный браузер и шлюз для безопасного веб-сёрфинга без сохранения следов на диске.**
 
 <p>
   <img src="https://img.shields.io/badge/Fastify-161b22?style=flat-square&logo=fastify&logoColor=white" />
@@ -103,6 +102,6 @@
   <img src="https://img.shields.io/badge/Docker-161b22?style=flat-square&logo=docker&logoColor=2496ED" />
 </p>
 
-* 🌐 **WISP WebSocket Gateway:** Серверный шлюз распаковывает сетевые TCP/UDP пакеты, инкапсулированные в зашифрованный WebSocket-канал, маскируя трафик под стандартный HTTPS.
-* 🔐 **Идентификация и сессии:** Валидация клиентов по аппаратному идентификатору (HWID), управление сессиями через Redis и хранение логов в PostgreSQL.
-* 🛡️ **Предотвращение утечек:** Блокировка WebRTC/DNS-утечек с резолвингом на стороне сервера и аварийный сброс соединений (Killswitch).
+* **Туннелирование:** Трафик маскируется под защищённый WebSocket-канал (протокол WISP) для обхода DPI и сетевых фильтров.
+* **Серверный шлюз:** Прокси распаковывает сетевые TCP/UDP пакеты и отправляет запросы во внешнюю сеть от имени VPS.
+* **Изоляция:** Сессии работают строго в оперативной памяти без сохранения кук и кэша на диск; блокируются WebRTC и DNS-утечки.
